@@ -16,7 +16,7 @@ return [
     |
     */
 
-    'default' => env('DB_CONNECTION', 'sqlite'),
+    'default' => env('DB_CONNECTION', 'mongodb'),
 
     /*
     |--------------------------------------------------------------------------
@@ -107,6 +107,12 @@ return [
             'prefix_indexes' => true,
             // 'encrypt' => env('DB_ENCRYPT', 'yes'),
             // 'trust_server_certificate' => env('DB_TRUST_SERVER_CERTIFICATE', 'false'),
+        ],
+
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => 'mongodb://' . env('DB_USERNAME', 'admin') . ':' . env('DB_PASSWORD', 'testuser123') . '@' . env('DB_HOST','localhost').':'. env('DB_PORT', '27017'),
+            'database' => env('DB_DATABASE', 'laravel'),
         ],
 
     ],
